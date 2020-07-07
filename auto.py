@@ -7,24 +7,21 @@ from selenium.webdriver.support.select import Select
 os.mkdir("/Users/taniteiko/Downloads/album")
 
 driver = webdriver.Chrome('/Users/taniteiko/Downloads/chromedriver')
-# 指定したURLのWebページへ遷移
 driver.implicitly_wait(10)
 driver.get('https://photozou.jp/basic/login')
 
 # print(pyautogui.position())
-path = "51830002.cj@gmail.com"
+path = "your mail adress"
 driver.implicitly_wait(10)
 pyautogui.click(406, 507)
 driver.implicitly_wait(10)
-pyperclip.copy('51830002.cj@gmail.com')
+pyperclip.copy('your mail adress')
 pyautogui.hotkey("command","v")
 driver.implicitly_wait(10)
 pyautogui.click(404, 551)
-pyautogui.typewrite("kureteyaru")
+pyautogui.typewrite("your password")
 pyautogui.click(473, 645)
 driver.implicitly_wait(10)
-# pyautogui.click(882, 544)
-# driver.find_element_by_xpath("/photo/top/1680833").click()
 element = driver.find_element_by_link_text("わたしの写真")
 element.click()
 
@@ -46,13 +43,13 @@ for i in range(len(selectop)):
     albumpath = "/Users/taniteiko/Downloads/album/" + selected[0].text
     os.mkdir(albumpath)
 
-    # while True:
-    #     try:
-    #         element = driver.find_elements_by_link_text("保存")
-    #         # for i in element:
-    #         #     i.click()
-    #         driver.implicitly_wait(10)
-    #         nextpage = driver.find_element_by_link_text("次へ")
-    #         nextpage.click()
-    #     except:
-    #         break
+    while True:
+        try:
+            element = driver.find_elements_by_link_text("保存")
+            # for i in element:
+            #     i.click()
+            driver.implicitly_wait(10)
+            nextpage = driver.find_element_by_link_text("次へ")
+            nextpage.click()
+        except:
+            break
